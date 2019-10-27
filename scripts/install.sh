@@ -2,6 +2,10 @@
 #
 #	Installationsscript duk-demo
 
+
+# Jupyter Scripte etc. Allgemein verfuegbar machen
+cp -rpv data/* /data/
+
 ##########################
 # User snoopy anlegen
 
@@ -56,11 +60,3 @@ helm install --name="kube-metrics" stable/kube-state-metrics --namespace=monitor
 curl -s -L https://git.io/getLatestIstio | ISTIO_VERSION=1.3.3 sh -
 for i in istio-1.3.3/install/kubernetes/helm/istio-init/files/crd*yaml; do kubectl apply -f $i; done
 kubectl apply -f istio-1.3.3/install/kubernetes/istio-demo.yaml
-
-# Bookinfo Beispielanwendung Namespace
-kubectl create namespace bookinfo
-kubectl label namespace bookinfo istio-injection=enabled
-
-# Web V1 + V2 Anwendung Namespace
-kubectl create namespace web
-kubectl label namespace web istio-injection=enabled    
