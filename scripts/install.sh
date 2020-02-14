@@ -13,10 +13,10 @@ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
 ##########################
 # Prometheus
-helm repo add coreos https://s3-eu-west-1.amazonaws.com/coreos-charts/stable/
-helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
-helm install coreos/kube-prometheus --name kube-prometheus --namespace monitoring
-helm install --name="kube-metrics" stable/kube-state-metrics --namespace=monitoring
+# helm repo add coreos https://s3-eu-west-1.amazonaws.com/coreos-charts/stable/
+# helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+# helm install coreos/kube-prometheus --name kube-prometheus --namespace monitoring
+# helm install --name="kube-metrics" stable/kube-state-metrics --namespace=monitoring
 
 ##########################
 # Istio
