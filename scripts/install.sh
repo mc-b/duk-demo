@@ -8,10 +8,8 @@ cp -rpv data/* /data/
 
 ##########################
 # HELM (Achtung bei Versionwechsel auch client.sh aendern).
-curl -L https://git.io/get_helm.sh | bash
-kubectl create serviceaccount --namespace kube-system tiller
-kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
-helm init --service-account=tiller --wait
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
 ##########################
 # Prometheus
