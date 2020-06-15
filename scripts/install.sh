@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#	Installationsscript duk-demo
+#   Installationsscript duk-demo
 
 
 # Jupyter Scripte etc. Allgemein verfuegbar machen
@@ -19,6 +19,22 @@ helm install prometheus-operator stable/prometheus-operator --namespace=monitori
 
 ##########################
 # ServiceMesh (Istio)
-curl -s -L https://git.io/getLatestIstio | ISTIO_VERSION=1.3.3 sh -
-for i in istio-1.3.3/install/kubernetes/helm/istio-init/files/crd*yaml; do kubectl apply -f $i; done
-kubectl apply -f istio-1.3.3/install/kubernetes/istio-demo.yaml
+curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.6.2 sh -
+sudo cp istio-1.6.2/bin/istioctl /usr/local/bin/
+istioctl install -y --set profile=demo
+
+##########################
+# Serverless (Knative)
+kubectl apply --filename https://github.com/knative/serving/releases/download/v0.15.0/serving-crds.yaml
+kubectl apply --filename https://github.com/knative/serving/releases/download/v0.15.0/serving-core.yaml
+
+kubectl apply --filename https://github.com/knative/net-istio/releases/download/v0.15.0/release.yaml
+wget https://storage.googleapis.com/knative-nightly/client/latest/kn-linux-amd64 -O kn
+chmod 755 kn
+sudo mv kn /usr/local/bin/
+
+##########################
+# Lasttests (hey)
+wget https://storage.googleapis.com/hey-release/hey_linux_amd64 -O hey
+chmod 755 hey
+sudo mv hey /usr/local/bin/
