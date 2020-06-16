@@ -24,11 +24,11 @@ sudo cp istio-1.6.2/bin/istioctl /usr/local/bin/
 istioctl install -y --set profile=demo
 
 ##########################
-# Serverless (Knative)
-kubectl apply --filename https://github.com/knative/serving/releases/download/v0.15.0/serving-crds.yaml
-kubectl apply --filename https://github.com/knative/serving/releases/download/v0.15.0/serving-core.yaml
+# Serverless (Knative) - Installation erfolgt in Juypter
+# kubectl apply --filename https://github.com/knative/serving/releases/download/v0.15.0/serving-crds.yaml
+# kubectl apply --filename https://github.com/knative/serving/releases/download/v0.15.0/serving-core.yaml
 
-kubectl apply --filename https://github.com/knative/net-istio/releases/download/v0.15.0/release.yaml
+# kubectl apply --filename https://github.com/knative/net-istio/releases/download/v0.15.0/release.yaml
 wget https://storage.googleapis.com/knative-nightly/client/latest/kn-linux-amd64 -O kn
 chmod 755 kn
 sudo mv kn /usr/local/bin/
