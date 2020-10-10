@@ -7,11 +7,6 @@
 cp -rpv data/* /data/
 
 ##########################
-# Package Manager (HELM - Achtung bei Versionwechsel auch client.sh aendern).
-curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
-
-##########################
 # Monitoring (Prometheus)
 kubectl create namespace monitoring
 helm repo add stable https://kubernetes-charts.storage.googleapis.com
