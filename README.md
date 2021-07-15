@@ -9,7 +9,6 @@ Projekt [lernkube](https://github.com/mc-b/lernkube), auf der Git/Bash Kommandoz
     git clone https://github.com/mc-b/lernkube
     cd lernkube
     cp templates/DUK-DEMO.yaml config.yaml
-    vagrant plugin install vagrant-disksize
     vagrant up
     
 **ACHTUNG**: die Umgebung braucht 32 GB RAM, 40 GB HD und eine CPU mit min. 4 Kernen.
