@@ -8,15 +8,9 @@ cp -rpv data/* /data/
 
 ##########################
 # Monitoring (Prometheus)
-kubectl create namespace monitoring
-helm repo add stable https://charts.helm.sh/stable
-helm install prometheus-operator stable/prometheus-operator --namespace=monitoring
-
-##########################
-# ServiceMesh (Istio)
-curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.6.2 sh -
-sudo cp istio-1.6.2/bin/istioctl /usr/local/bin/
-istioctl install -y --set profile=demo
+microk8s kubectl create namespace monitoring
+microk8s helm3 repo add stable https://charts.helm.sh/stable
+microk8s helm3 install prometheus-operator stable/prometheus-operator --namespace=monitoring
 
 ##########################
 # Serverless (Knative) - Installation erfolgt in Juypter
